@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Coordinates</title>
+    <style>
+        div {
+            width: 300px;
+            height: 300px;
+            background-color: #AECDFF;
+            margin: 10px;
+        }
+        .special {
+            background-color: #FFD732;
+        }
+        .btn{
+            position: fixed;
+            top: 0;
+            right: 0;
+        }
+    </style>
+</head>
+<body>
+    <div ></div>
+    <div ></div>
+    <div ></div>
+    <div ></div>
+    <div class="special"></div>
+    <div ></div>
+    <div ></div>
+    <div ></div>
+    <div ></div>
+    <aside class="btn">
+        <button class="scroll-by">100픽셀 만큼 이동</button>
+        <button class="scroll-to">100픽셀로 이동</button>
+        <button class="scroll-into">special 이동</button>
+    </aside>
+
+
+    <script>
+        const special = document.querySelector(".special");
+        const scrollBy = document.querySelector(".scroll-by");
+        const scrollTo = document.querySelector(".scroll-to");
+        const scrollInto = document.querySelector(".scroll-into");
+    
+        scrollBy.addEventListener("click", () => {
+            //window.scrollBy(0, 100);    //현재 위치를 기준으로 파라메터 값으로 넘겨준 만큼 이동
+            window.scrollBy({top:100, left:0, behavior:'smooth'});
+        });
+
+        scrollTo.addEventListener("click", () => {
+            window.scrollTo(0, 100);    //왼쪽 상단 모서리 부터 시작하여 전체 스크롤 값을 기준으로 파라메터로 넘겨준 값으로 이동합니다
+        });
+
+        scrollInto.addEventListener("click", () => {
+            special.scrollIntoView();   //호출 된 요소가 사용자에게 표시되도록 요소의 상위 컨테이너를 스크롤
+        }); 
+
+
+    </script>
+</body>
+</html>

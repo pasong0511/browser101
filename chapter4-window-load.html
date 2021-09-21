@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>window load</title>
+    <!-- <script src="test.js" defer></script> <!--defer를 쓰면 HTML이 다 분석 완료 후 그리고 DOMContentLoaded가 발생하기 이전에 실행--> --> 
+</head>
+<body>
+    <script>
+        //HTML만 완료가 되면 콜백함수 출력
+        window.addEventListener("DOMContentLoaded", (event) => {
+            console.log("DOMContentLoaded");
+        });
+
+        //페이지에 필요한 모든 리소스(css, images)가 완료가 되면 콜백함수 출력
+        window.addEventListener("load", (event) => {
+            console.log("load");
+        });
+
+         //브라우저에서 사용자가 나가기 전에 실행되는 콜백 함수
+        window.addEventListener("beforeunload", (event) => {
+            console.log("beforeunload");
+        });
+
+        //리소스 등 페이지가 다 열리지 않을때 실행되는 콜백 함수
+        window.addEventListener("unload", (event) => {
+            console.log("unload");
+        });
+
+    </script>
+
+</body>
+</html>
